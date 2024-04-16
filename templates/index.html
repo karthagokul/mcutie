@@ -1,0 +1,33 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT Web GUI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.min.js"></script>
+
+</head>
+<body>
+    <h1>MQTT Web GUI</h1>
+    <form action="/connect" method="post">
+        <label for="broker">Broker:</label>
+        <input type="text" id="broker" name="broker" value="localhost"><br><br>
+        <label for="port">Port:</label>
+        <input type="text" id="port" name="port" value="1883"><br><br>
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic" name="topic" value="test_topic"><br><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Connect">
+    </form>
+
+    <div id="messages"></div>
+</body>
+</html>
